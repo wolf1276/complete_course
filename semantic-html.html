@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semantic HTML — All Tags Reference</title>
+  <meta name="description" content="A complete reference showcasing every semantic HTML5 tag with examples." />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.8;
+      color: #1a1a2e;
+      background: #f8f9fc;
+    }
+
+    /* ===== TAG LABEL STYLING ===== */
+    .tag-label {
+      display: inline-block;
+      background: #e8e0ff;
+      color: #5b21b6;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .demo-box {
+      background: #fff;
+      border: 2px dashed #d1d5db;
+      border-radius: 10px;
+      padding: 24px;
+      margin: 12px 0 32px 0;
+      position: relative;
+    }
+
+    .demo-box::before {
+      content: '↓ OUTPUT';
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      background: #f8f9fc;
+      padding: 0 8px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #9ca3af;
+      letter-spacing: 1px;
+    }
+
+    h2.section-heading {
+      font-size: 1.5rem;
+      color: #5b21b6;
+      border-bottom: 3px solid #e8e0ff;
+      padding-bottom: 8px;
+      margin: 48px 0 20px 0;
+    }
+
+    /* ===== HEADER ===== */
+    body > header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    body > header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    body > header p {
+      color: #a5b4fc;
+      font-size: 1rem;
+    }
+
+    /* ===== NAV ===== */
+    body > nav {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 14px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    body > nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    body > nav a {
+      text-decoration: none;
+      color: #4b5563;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    body > nav a:hover { color: #5b21b6; }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    /* ===== ARTICLE ===== */
+    article {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    article header h3 {
+      font-size: 1.1rem;
+      color: #1a1a2e;
+    }
+
+    article footer {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #f3f4f6;
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+
+    /* ===== ASIDE ===== */
+    aside {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-size: 0.92rem;
+      color: #92400e;
+    }
+
+    /* ===== FIGURE ===== */
+    figure {
+      background: #f3f4f6;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      margin: 16px 0;
+    }
+
+    figure img {
+      max-width: 100%;
+      border-radius: 6px;
+    }
+
+    figcaption {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ===== DETAILS / SUMMARY ===== */
+    details {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 8px 0;
+    }
+
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+      color: #5b21b6;
+    }
+
+    details[open] summary {
+      margin-bottom: 8px;
+    }
+
+    /* ===== BLOCKQUOTE ===== */
+    blockquote {
+      border-left: 4px solid #a78bfa;
+      padding: 12px 20px;
+      margin: 12px 0;
+      background: #f5f3ff;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #4c1d95;
+    }
+
+    blockquote cite {
+      display: block;
+      font-style: normal;
+      font-weight: 600;
+      margin-top: 8px;
+      font-size: 0.85rem;
+    }
+
+    /* ===== CODE / PRE ===== */
+    code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      color: #dc2626;
+    }
+
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 16px 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+
+    pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    /* ===== MARK ===== */
+    mark {
+      background: #fef08a;
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    /* ===== ADDRESS ===== */
+    address {
+      font-style: normal;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== TABLE ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+    }
+
+    thead { background: #f8fafc; }
+
+    th, td {
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid #e5e7eb;
+      font-size: 0.9rem;
+    }
+
+    th { font-weight: 700; color: #374151; }
+
+    caption {
+      caption-side: top;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #4b5563;
+    }
+
+    /* ===== PROGRESS / METER ===== */
+    progress, meter {
+      width: 200px;
+      height: 20px;
+      margin: 4px 8px;
+      vertical-align: middle;
+    }
+
+    /* ===== FIELDSET ===== */
+    fieldset {
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 12px 0;
+    }
+
+    legend {
+      font-weight: 700;
+      color: #5b21b6;
+      padding: 0 8px;
+    }
+
+    /* ===== FOOTER ===== */
+    body > footer {
+      background: #1a1a2e;
+      color: #9ca3af;
+      text-align: center;
+      padding: 32px;
+      font-size: 0.85rem;
+    }
+
+    body > footer a {
+      color: #a78bfa;
+      text-decoration: none;
+    }
+
+    /* ===== DL ===== */
+    dl { margin: 12px 0; }
+    dt { font-weight: 700; color: #374151; margin-top: 10px; }
+    dd { margin-left: 20px; color: #6b7280; }
+
+    /* ===== MISC INLINE ===== */
+    kbd {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      box-shadow: 0 1px 0 #94a3b8;
+    }
+
+    samp {
+      background: #1e293b;
+      color: #4ade80;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- 1. <header> — Page-level header              -->
+  <!-- ============================================ -->
+  <header>
+    <span class="tag-label">&lt;header&gt;</span>
+    <h1>Semantic HTML — Complete Reference</h1>
+    <p>Every semantic tag in HTML5, demonstrated with real examples</p>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- 2. <nav> — Navigation                        -->
+  <!-- ============================================ -->
+  <nav>
+    <span class="tag-label">&lt;nav&gt;</span>
+    <ul>
+      <li><a href="#structural">Structural</a></li>
+      <li><a href="#text-content">Text Content</a></li>
+      <li><a href="#inline">Inline Semantics</a></li>
+      <li><a href="#interactive">Interactive</a></li>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#table-tags">Table</a></li>
+      <li><a href="#media">Media</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- 3. <main> — Main content of the document     -->
+  <!-- ============================================ -->
+  <main>
+
+    <span class="tag-label">&lt;main&gt;</span>
+    <p style="margin-bottom:24px;">The <code>&lt;main&gt;</code> element wraps the dominant content of the page. There should only be one per document.</p>
+
+    <!-- ===== STRUCTURAL TAGS ===== -->
+    <h2 class="section-heading" id="structural">🏗️ Structural Tags</h2>
+
+    <!-- <section> -->
+    <section>
+      <span class="tag-label">&lt;section&gt;</span>
+      <p>A <code>&lt;section&gt;</code> groups thematically related content. Each section typically has a heading.</p>
+      <div class="demo-box">
+        <section>
+          <h3>Why Semantic HTML?</h3>
+          <p>Semantic HTML improves accessibility, SEO, and code readability by giving meaning to webpage structure.</p>
+        </section>
+      </div>
+    </section>
+
+    <!-- <article> -->
+    <section>
+      <span class="tag-label">&lt;article&gt;</span>
+      <p>An <code>&lt;article&gt;</code> represents a self-contained piece of content — a blog post, news story, or comment.</p>
+      <div class="demo-box">
+        <article>
+          <header>
+            <span class="tag-label">&lt;article&gt; &lt;header&gt;</span>
+            <h3>Understanding the DOM</h3>
+            <p><time datetime="2026-03-03">March 3, 2026</time> · 5 min read</p>
+          </header>
+          <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content.</p>
+          <footer>
+            <span class="tag-label">&lt;article&gt; &lt;footer&gt;</span>
+            Written by <strong>Ahir Sarkar</strong> · Filed under <em>Web Development</em>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- <aside> -->
+    <section>
+      <span class="tag-label">&lt;aside&gt;</span>
+      <p>An <code>&lt;aside&gt;</code> holds content tangentially related to the main content — like a sidebar tip or pull quote.</p>
+      <div class="demo-box">
+        <aside>
+          💡 <strong>Tip:</strong> Screen readers use semantic tags to build an outline of your page. Using them correctly makes your site more accessible to everyone.
+        </aside>
+      </div>
+    </section>
+
+    <!-- <figure> & <figcaption> -->
+    <section>
+      <span class="tag-label">&lt;figure&gt; &amp; &lt;figcaption&gt;</span>
+      <p>A <code>&lt;figure&gt;</code> wraps self-contained content like images, diagrams, or code snippets. <code>&lt;figcaption&gt;</code> provides a caption.</p>
+      <div class="demo-box">
+        <figure>
+          <svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="100" rx="8" fill="#e0e7ff"/>
+            <text x="100" y="55" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#4338ca">Sample Image</text>
+          </svg>
+          <figcaption>Fig 1: A placeholder representing an image inside a &lt;figure&gt; tag.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== TEXT CONTENT TAGS ===== -->
+    <h2 class="section-heading" id="text-content">📝 Text Content Tags</h2>
+
+    <!-- <blockquote> & <cite> -->
+    <section>
+      <span class="tag-label">&lt;blockquote&gt; &amp; &lt;cite&gt;</span>
+      <p>A <code>&lt;blockquote&gt;</code> is for extended quotations. <code>&lt;cite&gt;</code> credits the source.</p>
+      <div class="demo-box">
+        <blockquote cite="https://www.w3.org/standards/webdesign/htmlcss">
+          "The goal of HTML is to provide a way to create structured documents by denoting structural semantics for text."
+          <cite>— W3C Web Standards</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- <pre> & <code> -->
+    <section>
+      <span class="tag-label">&lt;pre&gt; &amp; &lt;code&gt;</span>
+      <p><code>&lt;pre&gt;</code> preserves whitespace and formatting. <code>&lt;code&gt;</code> marks inline or block code.</p>
+      <div class="demo-box">
+        <p>Inline: Use <code>document.getElementById()</code> to select elements.</p>
+        <pre><code>&lt;!-- Block code example --&gt;
+&lt;section&gt;
+  &lt;h2&gt;Hello World&lt;/h2&gt;
+  &lt;p&gt;This is semantic HTML.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+    </section>
+
+    <!-- <dl>, <dt>, <dd> -->
+    <section>
+      <span class="tag-label">&lt;dl&gt; &lt;dt&gt; &lt;dd&gt;</span>
+      <p>A description list (<code>&lt;dl&gt;</code>) pairs terms (<code>&lt;dt&gt;</code>) with descriptions (<code>&lt;dd&gt;</code>).</p>
+      <div class="demo-box">
+        <dl>
+          <dt>HTML</dt>
+          <dd>HyperText Markup Language — the structure of web pages.</dd>
+          <dt>CSS</dt>
+          <dd>Cascading Style Sheets — the presentation layer.</dd>
+          <dt>JavaScript</dt>
+          <dd>A scripting language for interactivity on the web.</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- <address> -->
+    <section>
+      <span class="tag-label">&lt;address&gt;</span>
+      <p>The <code>&lt;address&gt;</code> tag provides contact information for the author or owner.</p>
+      <div class="demo-box">
+        <address>
+          📧 <a href="mailto:ahir@example.com">ahir@example.com</a><br />
+          🐙 <a href="https://github.com/wolf1276">github.com/wolf1276</a><br />
+          📍 India
+        </address>
+      </div>
+    </section>
+
+    <!-- <hr> -->
+    <section>
+      <span class="tag-label">&lt;hr&gt;</span>
+      <p>A <code>&lt;hr&gt;</code> represents a thematic break between content sections.</p>
+      <div class="demo-box">
+        <p>Section one content ends here.</p>
+        <hr />
+        <p>Section two content begins here.</p>
+      </div>
+    </section>
+
+    <!-- ===== INLINE SEMANTIC TAGS ===== -->
+    <h2 class="section-heading" id="inline">✨ Inline Semantic Tags</h2>
+
+    <section>
+      <div class="demo-box">
+
+        <!-- <strong> & <em> -->
+        <p>
+          <span class="tag-label">&lt;strong&gt;</span>
+          <strong>This text is strongly important.</strong>
+        </p>
+        <p>
+          <span class="tag-label">&lt;em&gt;</span>
+          <em>This text is emphasized.</em>
+        </p>
+
+        <!-- <mark> -->
+        <p>
+          <span class="tag-label">&lt;mark&gt;</span>
+          Semantic HTML is <mark>extremely important</mark> for accessibility.
+        </p>
+
+        <!-- <small> -->
+        <p>
+          <span class="tag-label">&lt;small&gt;</span>
+          <small>This is fine print — legal disclaimers, copyright, etc.</small>
+        </p>
+
+        <!-- <del> & <ins> -->
+        <p>
+          <span class="tag-label">&lt;del&gt; &amp; &lt;ins&gt;</span>
+          Price: <del>$49.99</del> <ins>$29.99</ins>
+        </p>
+
+        <!-- <sub> & <sup> -->
+        <p>
+          <span class="tag-label">&lt;sub&gt; &amp; &lt;sup&gt;</span>
+          H<sub>2</sub>O is water. E = mc<sup>2</sup> is Einstein's equation.
+        </p>
+
+        <!-- <abbr> -->
+        <p>
+          <span class="tag-label">&lt;abbr&gt;</span>
+          <abbr title="HyperText Markup Language">HTML</abbr> is the backbone of the web.
+        </p>
+
+        <!-- <dfn> -->
+        <p>
+          <span class="tag-label">&lt;dfn&gt;</span>
+          <dfn>Semantics</dfn> refers to the meaning of a piece of code — what effect does running that line have?
+        </p>
+
+        <!-- <time> -->
+        <p>
+          <span class="tag-label">&lt;time&gt;</span>
+          Published on <time datetime="2026-03-03T17:00:00+05:30">March 3, 2026 at 5:00 PM IST</time>.
+        </p>
+
+        <!-- <kbd> -->
+        <p>
+          <span class="tag-label">&lt;kbd&gt;</span>
+          Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.
+        </p>
+
+        <!-- <samp> -->
+        <p>
+          <span class="tag-label">&lt;samp&gt;</span>
+          Terminal output: <samp>Build completed successfully.</samp>
+        </p>
+
+        <!-- <var> -->
+        <p>
+          <span class="tag-label">&lt;var&gt;</span>
+          The area of a circle is π × <var>r</var><sup>2</sup>.
+        </p>
+
+        <!-- <q> -->
+        <p>
+          <span class="tag-label">&lt;q&gt;</span>
+          As Tim Berners-Lee said, <q>The Web does not just connect machines, it connects people.</q>
+        </p>
+
+        <!-- <s> -->
+        <p>
+          <span class="tag-label">&lt;s&gt;</span>
+          <s>This feature has been deprecated.</s> Use the new API instead.
+        </p>
+
+        <!-- <wbr> -->
+        <p>
+          <span class="tag-label">&lt;wbr&gt;</span>
+          supercalifragilistic<wbr>expialidocious — the <code>&lt;wbr&gt;</code> suggests a line-break opportunity.
+        </p>
+
+        <!-- <bdo> -->
+        <p>
+          <span class="tag-label">&lt;bdo&gt;</span>
+          Reversed text: <bdo dir="rtl">Hello World</bdo>
+        </p>
+
+        <!-- <data> -->
+        <p>
+          <span class="tag-label">&lt;data&gt;</span>
+          Product: <data value="12345">Wireless Mouse</data>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ===== INTERACTIVE TAGS ===== -->
+    <h2 class="section-heading" id="interactive">🔧 Interactive Tags</h2>
+
+    <!-- <details> & <summary> -->
+    <section>
+      <span class="tag-label">&lt;details&gt; &amp; &lt;summary&gt;</span>
+      <p>A disclosure widget that can be toggled open/closed. No JavaScript required!</p>
+      <div class="demo-box">
+        <details>
+          <summary>What is Semantic HTML?</summary>
+          <p>Semantic HTML uses tags that convey meaning about the structure and content of a page, such as <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;section&gt;</code>.</p>
+        </details>
+        <details>
+          <summary>Why should I use it?</summary>
+          <p>It improves SEO, accessibility, code maintainability, and makes your HTML self-documenting.</p>
+        </details>
+        <details open>
+          <summary>Is it hard to learn?</summary>
+          <p>Not at all! You're learning it right now by reading this page. 🎉</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- <dialog> -->
+    <section>
+      <span class="tag-label">&lt;dialog&gt;</span>
+      <p>The <code>&lt;dialog&gt;</code> tag represents a dialog box or modal. (Shown inline with the <code>open</code> attribute below.)</p>
+      <div class="demo-box">
+        <dialog open style="border:2px solid #a78bfa; border-radius:12px; padding:24px; background:#faf5ff; max-width:360px;">
+          <h3>👋 Hello!</h3>
+          <p>This is a <code>&lt;dialog&gt;</code> element rendered with the <code>open</code> attribute.</p>
+        </dialog>
+      </div>
+    </section>
+
+    <!-- ===== FORM SEMANTIC TAGS ===== -->
+    <h2 class="section-heading" id="forms">📋 Form Tags</h2>
+
+    <section>
+      <span class="tag-label">&lt;form&gt; &lt;fieldset&gt; &lt;legend&gt; &lt;label&gt; &lt;output&gt;</span>
+      <div class="demo-box">
+        <form>
+          <fieldset>
+            <legend>User Information</legend>
+            <p>
+              <label for="name-input"><strong>Name:</strong></label><br />
+              <input type="text" id="name-input" placeholder="Ahir Sarkar" style="padding:8px 12px; border:1px solid #d1d5db; border-radius:6px; width:100%; max-width:300px;" />
+            </p>
+            <p style="margin-top:12px;">
+              <label for="email-input"><strong>Email:</strong></label><br />
+              <input type="email" id="email-input" placeholder="ahir@example.com" style="padding:8px 12px; border:1px solid #d1d5db; border-radius:6px; width:100%; max-width:300px;" />
+            </p>
+          </fieldset>
+
+          <fieldset style="margin-top:16px;">
+            <legend>Skill Level</legend>
+            <p>
+              <span class="tag-label">&lt;progress&gt;</span>
+              HTML Mastery: <progress value="85" max="100">85%</progress> 85%
+            </p>
+            <p>
+              <span class="tag-label">&lt;meter&gt;</span>
+              Disk Usage: <meter value="0.6" min="0" max="1" low="0.3" high="0.8" optimum="0.5">60%</meter> 60%
+            </p>
+            <p>
+              <span class="tag-label">&lt;output&gt;</span>
+              Result: <output name="result">42</output>
+            </p>
+          </fieldset>
+
+          <fieldset style="margin-top:16px;">
+            <legend>Options</legend>
+            <p>
+              <span class="tag-label">&lt;datalist&gt;</span>
+              <label for="framework">Favorite Framework:</label>
+              <input list="frameworks" id="framework" placeholder="Type to search..." style="padding:8px 12px; border:1px solid #d1d5db; border-radius:6px;" />
+              <datalist id="frameworks">
+                <option value="React">
+                <option value="Vue">
+                <option value="Angular">
+                <option value="Svelte">
+                <option value="Next.js">
+              </datalist>
+            </p>
+            <p style="margin-top:12px;">
+              <span class="tag-label">&lt;optgroup&gt;</span>
+              <label for="lang-select">Language:</label>
+              <select id="lang-select" style="padding:8px 12px; border:1px solid #d1d5db; border-radius:6px;">
+                <optgroup label="Frontend">
+                  <option>HTML</option>
+                  <option>CSS</option>
+                  <option>JavaScript</option>
+                </optgroup>
+                <optgroup label="Backend">
+                  <option>Node.js</option>
+                  <option>Python</option>
+                  <option>Rust</option>
+                </optgroup>
+              </select>
+            </p>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== TABLE TAGS ===== -->
+    <h2 class="section-heading" id="table-tags">📊 Table Tags</h2>
+
+    <section>
+      <span class="tag-label">&lt;table&gt; &lt;caption&gt; &lt;thead&gt; &lt;tbody&gt; &lt;tfoot&gt; &lt;colgroup&gt; &lt;col&gt;</span>
+      <div class="demo-box">
+        <table>
+          <caption>Semantic Tags Overview</caption>
+          <colgroup>
+            <col style="width:30%;" />
+            <col style="width:35%;" />
+            <col style="width:35%;" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Tag</th>
+              <th>Purpose</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;header&gt;</code></td>
+              <td>Introductory content</td>
+              <td>Structural</td>
+            </tr>
+            <tr>
+              <td><code>&lt;nav&gt;</code></td>
+              <td>Navigation links</td>
+              <td>Structural</td>
+            </tr>
+            <tr>
+              <td><code>&lt;main&gt;</code></td>
+              <td>Primary content</td>
+              <td>Structural</td>
+            </tr>
+            <tr>
+              <td><code>&lt;article&gt;</code></td>
+              <td>Self-contained content</td>
+              <td>Structural</td>
+            </tr>
+            <tr>
+              <td><code>&lt;mark&gt;</code></td>
+              <td>Highlighted text</td>
+              <td>Inline</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" style="text-align:center; color:#6b7280;"><em>Total: 40+ semantic tags in HTML5</em></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== MEDIA TAGS ===== -->
+    <h2 class="section-heading" id="media">🎬 Media & Embedded Tags</h2>
+
+    <section>
+      <span class="tag-label">&lt;audio&gt; &lt;video&gt; &lt;picture&gt; &lt;source&gt;</span>
+      <p>These tags embed media. They degrade gracefully — showing fallback content if the browser doesn't support them.</p>
+      <div class="demo-box">
+        <p><strong>&lt;audio&gt;</strong> — embeds sound content:</p>
+        <audio controls>
+          <source src="audio.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+
+        <p style="margin-top:20px;"><strong>&lt;video&gt;</strong> — embeds video content:</p>
+        <video controls width="320" style="border-radius:8px; background:#000;">
+          <source src="video.mp4" type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+
+        <p style="margin-top:20px;"><strong>&lt;picture&gt;</strong> — art direction for responsive images:</p>
+        <picture>
+          <source media="(min-width: 800px)" srcset="large.webp" type="image/webp" />
+          <source media="(min-width: 400px)" srcset="medium.jpg" />
+          <img src="small.jpg" alt="Responsive image example" style="max-width:100%; border-radius:8px; background:#e5e7eb; height:60px; display:flex; align-items:center; justify-content:center;" />
+        </picture>
+      </div>
+    </section>
+
+    <!-- ===== SUMMARY SECTION ===== -->
+    <h2 class="section-heading">📑 Quick Reference</h2>
+    <section>
+      <p>All semantic tags demonstrated on this page:</p>
+      <div class="demo-box" style="columns: 3; column-gap: 24px;">
+        <p><code>&lt;header&gt;</code></p>
+        <p><code>&lt;nav&gt;</code></p>
+        <p><code>&lt;main&gt;</code></p>
+        <p><code>&lt;section&gt;</code></p>
+        <p><code>&lt;article&gt;</code></p>
+        <p><code>&lt;aside&gt;</code></p>
+        <p><code>&lt;footer&gt;</code></p>
+        <p><code>&lt;figure&gt;</code></p>
+        <p><code>&lt;figcaption&gt;</code></p>
+        <p><code>&lt;details&gt;</code></p>
+        <p><code>&lt;summary&gt;</code></p>
+        <p><code>&lt;dialog&gt;</code></p>
+        <p><code>&lt;blockquote&gt;</code></p>
+        <p><code>&lt;cite&gt;</code></p>
+        <p><code>&lt;q&gt;</code></p>
+        <p><code>&lt;pre&gt;</code></p>
+        <p><code>&lt;code&gt;</code></p>
+        <p><code>&lt;mark&gt;</code></p>
+        <p><code>&lt;time&gt;</code></p>
+        <p><code>&lt;address&gt;</code></p>
+        <p><code>&lt;strong&gt;</code></p>
+        <p><code>&lt;em&gt;</code></p>
+        <p><code>&lt;small&gt;</code></p>
+        <p><code>&lt;del&gt;</code></p>
+        <p><code>&lt;ins&gt;</code></p>
+        <p><code>&lt;sub&gt;</code></p>
+        <p><code>&lt;sup&gt;</code></p>
+        <p><code>&lt;abbr&gt;</code></p>
+        <p><code>&lt;dfn&gt;</code></p>
+        <p><code>&lt;kbd&gt;</code></p>
+        <p><code>&lt;samp&gt;</code></p>
+        <p><code>&lt;var&gt;</code></p>
+        <p><code>&lt;s&gt;</code></p>
+        <p><code>&lt;wbr&gt;</code></p>
+        <p><code>&lt;bdo&gt;</code></p>
+        <p><code>&lt;data&gt;</code></p>
+        <p><code>&lt;hr&gt;</code></p>
+        <p><code>&lt;dl&gt; &lt;dt&gt; &lt;dd&gt;</code></p>
+        <p><code>&lt;table&gt;</code></p>
+        <p><code>&lt;caption&gt;</code></p>
+        <p><code>&lt;thead&gt; &lt;tbody&gt; &lt;tfoot&gt;</code></p>
+        <p><code>&lt;colgroup&gt; &lt;col&gt;</code></p>
+        <p><code>&lt;form&gt;</code></p>
+        <p><code>&lt;fieldset&gt; &lt;legend&gt;</code></p>
+        <p><code>&lt;label&gt;</code></p>
+        <p><code>&lt;output&gt;</code></p>
+        <p><code>&lt;progress&gt;</code></p>
+        <p><code>&lt;meter&gt;</code></p>
+        <p><code>&lt;datalist&gt;</code></p>
+        <p><code>&lt;optgroup&gt;</code></p>
+        <p><code>&lt;audio&gt;</code></p>
+        <p><code>&lt;video&gt;</code></p>
+        <p><code>&lt;picture&gt;</code></p>
+        <p><code>&lt;source&gt;</code></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================ -->
+  <!-- <footer> — Page-level footer                 -->
+  <!-- ============================================ -->
+  <footer>
+    <span class="tag-label">&lt;footer&gt;</span>
+    <p style="margin-top:8px;">Built by <a href="https://github.com/wolf1276">Ahir Sarkar</a> · 2026</p>
+    <p><small>This page uses zero JavaScript — pure HTML &amp; CSS only.</small></p>
+  </footer>
+
+</body>
+</html>
